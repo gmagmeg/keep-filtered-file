@@ -1,0 +1,157 @@
+{
+  "name": "file-filter",
+  "displayName": "File Filter",
+  "description": "A powerful file filtering and search extension for VS Code with clipboard integration",
+  "version": "0.0.1",
+  "publisher": "your-publisher-name",
+  "private": false,
+  "license": "MIT",
+  "icon": "images/icon.png",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/your-username/file-filter.git"
+  },
+  "engines": {
+    "vscode": "^1.60.0"
+  },
+  "categories": [
+    "Other",
+    "Search",
+    "File System"
+  ],
+  "activationEvents": [
+    "onStartupFinished",
+    "onCommand:my-extension.quickFileFilter",
+    "onCommand:my-extension.showTime",
+    "onCommand:my-extension.clearFileFilter",
+    "onCommand:my-extension.copyToNotepad",
+    "onCommand:my-extension.copyAllToNotepad",
+    "onView:filteredFiles"
+  ],
+  "main": "./out/extension.js",
+  "contributes": {
+    "viewsContainers": {
+      "activitybar": [
+        {
+          "id": "file-explorer-container",
+          "title": "File Explorer",
+          "icon": "$(files)"
+        }
+      ]
+    },
+    "views": {
+      "explorer": [
+        {
+          "id": "filteredFiles",
+          "name": "Filtered Files",
+          "when": "workbenchState != empty"
+        }
+      ]
+    },
+    "commands": [
+      {
+        "command": "my-extension.showTime",
+        "title": "Show Current Time"
+      },
+      {
+        "command": "my-extension.quickFileFilter",
+        "title": "Filter Files",
+        "icon": "$(search)"
+      },
+      {
+        "command": "my-extension.clearFileFilter",
+        "title": "Clear Filter",
+        "icon": "$(clear-all)"
+      },
+      {
+        "command": "my-extension.copyToNotepad",
+        "title": "Copy to Notepad",
+        "icon": "$(note)"
+      },
+      {
+        "command": "my-extension.copyAllToNotepad",
+        "title": "Copy All to Notepad",
+        "icon": "$(files)"
+      }
+    ],
+    "menus": {
+      "view/title": [
+        {
+          "command": "my-extension.quickFileFilter",
+          "when": "view == filteredFiles",
+          "group": "navigation"
+        },
+        {
+          "command": "my-extension.clearFileFilter",
+          "when": "view == filteredFiles",
+          "group": "navigation"
+        },
+        {
+          "command": "my-extension.copyAllToNotepad",
+          "when": "view == filteredFiles",
+          "group": "navigation"
+        },
+        {
+          "command": "my-extension.quickFileFilter",
+          "when": "view == 'workbench.explorer.fileView'",
+          "group": "navigation"
+        }
+      ],
+      "explorer/context": [
+        {
+          "command": "my-extension.quickFileFilter",
+          "group": "navigation"
+        }
+      ],
+      "editor/title": [
+        {
+          "command": "my-extension.quickFileFilter",
+          "group": "navigation"
+        }
+      ],
+      "view/item/context": [
+        {
+          "command": "my-extension.copyToNotepad",
+          "when": "view == filteredFiles",
+          "group": "inline"
+        }
+      ]
+    },
+    "configuration": {
+      "title": "File Color Extension",
+      "properties": {
+        "myExtension.appDirectoryColor": {
+          "type": "string",
+          "default": "charts.green",
+          "description": "appディレクトリに適用する色を指定します"
+        },
+        "myExtension.appFilesColor": {
+          "type": "string",
+          "default": "charts.orange",
+          "description": "appディレクトリ内のファイルに適用する色を指定します"
+        }
+      }
+    }
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run compile",
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./",
+    "pretest": "npm run compile && npm run lint",
+    "lint": "eslint src --ext ts",
+    "test": "node ./out/test/runTest.js"
+  },
+  "devDependencies": {
+    "@types/vscode": "^1.60.0",
+    "@types/glob": "^7.1.4",
+    "@types/mocha": "^9.0.0",
+    "@types/node": "14.x",
+    "@typescript-eslint/eslint-plugin": "^5.1.0",
+    "@typescript-eslint/parser": "^5.1.0",
+    "eslint": "^8.1.0",
+    "glob": "^7.1.7",
+    "mocha": "^9.1.3",
+    "typescript": "^4.4.4",
+    "@vscode/test-electron": "^1.6.2"
+  }
+}
