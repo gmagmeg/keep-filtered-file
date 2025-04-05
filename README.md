@@ -3,6 +3,8 @@ File Filter enhances file searching in VS Code.
 Quickly perform regex-based searches across directories and pin results in a dedicated panel.
 Easily access relevant files and resume work without hassle.
 
+![Screenshot](images/sss.png)
+
 🔹 Key Features
 - 🚀 Advanced Filtering: Flexible search with regular expressions
 - 📌 Persistent Panel: Keep search results in a tree view
