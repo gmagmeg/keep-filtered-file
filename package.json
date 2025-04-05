@@ -3,7 +3,7 @@
   "displayName": "File Filter",
   "description": "A powerful file filtering and search extension for VS Code with clipboard integration",
   "version": "0.0.1",
-  "publisher": "your-publisher-name",
+  "publisher": "2a63b374-a435-6c06-a759-7e937b54d8c6",
   "private": false,
   "license": "MIT",
   "icon": "images/icon.png",
@@ -153,5 +153,5 @@
     "mocha": "^9.1.3",
     "typescript": "^4.4.4",
     "@vscode/test-electron": "^1.6.2"
-  }
+  },
 }
